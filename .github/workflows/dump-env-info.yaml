@@ -2,9 +2,14 @@ name: dump env info
 
 on:
   workflow_call:
+    inputs:
+      environment: 
+        required: true
+        type: string
 
 jobs:
   test-env-related-steps:
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:  
       - name: Dump strategy context
