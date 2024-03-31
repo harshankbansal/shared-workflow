@@ -40,6 +40,7 @@ jobs:
 
   test-env-related-steps:
     uses: .github/workflows/ci-wf.yaml@main
+    with: ${{ matrix.environment }}
     strategy:
       matrix:
         environment: ["dev", "uat"]
