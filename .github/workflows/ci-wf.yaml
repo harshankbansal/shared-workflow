@@ -43,7 +43,7 @@ jobs:
     strategy:
       matrix:
         environment: ["dev", "uat"]
-    environment: ${{ inputs.environment }}
+    environment: ${{ matrix.environment }}
     steps:
       - name: Dump strategy context
         env:
