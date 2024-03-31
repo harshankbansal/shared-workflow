@@ -39,7 +39,7 @@ jobs:
         run: echo "$STRATEGY_CONTEXT"
 
   test-env-related-steps:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         environment: ["dev", "uat"]
