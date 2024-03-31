@@ -1,0 +1,38 @@
+name: dump env info
+
+on:
+  workflow_call:
+
+jobs:
+  test-env-related-steps:
+    runs-on: ubuntu-latest
+    steps:  
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        shell: bash
+        run: echo "$STRATEGY_CONTEXT"
+        
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        shell: bash
+        run: echo "$MATRIX_CONTEXT"
+    
+      - name: Dump env
+        env:
+          ALL_ENV: ${{ toJson(env) }}
+        shell: bash
+        run: echo "$ALL_ENV"
+
+      - name: Dump secrets
+        env:
+          ALL_SEC: ${{ toJson(secrets) }}
+        shell: bash
+        run: echo "$ALL_SEC"
+
+      - name: Dump vars
+        env:
+          ALL_VAR: ${{ toJson(vars) }}
+        shell: bash
+        run: echo "$ALL_VAR"
